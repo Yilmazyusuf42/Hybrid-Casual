@@ -87,4 +87,8 @@ public class BakeryController : MonoBehaviour
         currentCount--;
         DisplayCurrentWill();
     }
+    public ProductDataScript ProductType()
+    {
+        return productType;
+    }
 }

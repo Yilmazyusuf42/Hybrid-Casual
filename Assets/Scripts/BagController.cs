@@ -82,10 +82,10 @@ public class BagController : MonoBehaviour
         bool bakeryStatus = other.GetComponent<UnlockingUnits>().isUnlocked;
         if (other.CompareTag("Bakery") && bakeryStatus)
         {
-            if (cases.Count > 0)
+            BakeryController bakery = other.GetComponent<BakeryController>();
+            if (cases.Count > 0 && cases.Exists(p => bakery.ProductType()))
                 PlayShoppingSound();
 
-            BakeryController bakery = other.GetComponent<BakeryController>();
             ProductDataScript willType = bakery.ReturnWillType();
             for (int i = cases.Count - 1; i >= 0; i--)
             {
